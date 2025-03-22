@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Задача 1");
@@ -11,7 +13,25 @@ public class Main {
             System.out.println(year + " год — невисокосный год");
         }
         System.out.println("Задача 2");
-        System.out.println("Затрудняюсь, с чего начать");
+        class AppInstallationSuggestion {
+            public static void main(String[] args) {
+                int clientDeviceYear = 2018;
+                int osType = 0;
+                suggestAppInstallation(osType, clientDeviceYear);
+            }
+            public static void suggestAppInstallation(int osType, int clientDeviceYear) {
+                int currentYear = LocalDate.now().getYear();
+                if (clientDeviceYear < 2015) {
+                    if (osType == 0) {
+                        System.out.println("Установите облегченную версию приложения для iOS по ссылке");
+                    } else {
+                        System.out.println("Установите облегченную версию приложения для Android по ссылке");
+                    }
+                } else {
+                    System.out.println("Установите обычную версию приложения");
+                }
+            }
+        }
         System.out.println("Задача 3");
         class CardDelivery {
             public static void main(String[] args) {
