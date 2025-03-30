@@ -1,15 +1,16 @@
 public class Main {
-    // Задача 1
-    public static void printLeapYear(int leapYear) {
-        System.out.println(leapYear + " год - высокосный год");
+    public static void printLeapYear(int year) {
+        System.out.println(year + " год - высокосный год");
     }
-    public static void printNotLeapYear(int leapYear) {
-        System.out.println(leapYear + " год - не высокосный год");
+
+    public static void printNotLeapYear(int year) {
+        System.out.println(year + " год - не высокосный год");
     }
+
     public static void main(String[] args) {
-        int year = 1984;
-        int leapYear = year - 1584;
-        if (year >= 1584 && leapYear % 4 == 0 && leapYear % 100 != 0 || leapYear % 400 == 0) {
+        // Задача 1
+        int year = 2002;
+        if (year >= 1584 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
             printLeapYear(year);
         } else {
             printNotLeapYear(year);
@@ -19,6 +20,7 @@ public class Main {
         int clientDeviceYear = 2015;
         recommendAppVersion(clientOS, clientDeviceYear);
     }
+
     public static void recommendAppVersion(int clientOS, int clientDeviceYear) {
         String osType;
         if (clientOS == 0) {
@@ -31,25 +33,29 @@ public class Main {
         } else {
             System.out.println("Установите обычную версию приложения для " + osType + " по ссылке");
         }
-        // Задача 3
-        int distance = 65;
-        deliveryDay(distance);
-        if (distance == -1) {
-            System.out.println("Свыше 100 км доставки нет");
-        } else {
-            System.out.println("Потребуется дней: " + deliveryDay(distance) + " срок доставки");
-        }
     }
-    public static int deliveryDay(int distance) {
-        if (distance < 20 && distance >= 0) {
-            return 1;
-        } else if (distance > 20 && distance < 60) {
-            return 2;
-        } else if (distance > 60 && distance < 100) {
-            return 3;
-        } else {
-            return -1;
+
+    // Задача 3
+    public static int DeliveryDays(int deliveryDistance) {
+        {
+            int deliveryDistance = 95;
+            int deliveryDays = DeliveryDays(deliveryDistance);
+            if (deliveryDays == -1) {
+                System.out.println("Свыше 100 км доставки нет");
+            } else {
+                System.out.println("Потребуется дней: " + deliveryDays + " срок доставки");
+            }
+            if (deliveryDistance < 0) {
+                return -1;
+            } else if (deliveryDistance <= 20) {
+                return 1;
+            } else if (deliveryDistance <= 60) {
+                return 2;
+            } else if (deliveryDistance <= 100) {
+                return 3;
+            } else {
+                return -1;
+            }
         }
     }
 }
-
