@@ -2,19 +2,18 @@ public class Main {
     public static void printLeapYear(int year) {
         System.out.println(year + " год - высокосный год");
     }
-
     public static void printNotLeapYear(int year) {
         System.out.println(year + " год - не высокосный год");
-    }
-
-    public static void main(String[] args) {
         // Задача 1
-        int year = 2002;
+        year = 2002;
         if (year >= 1584 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
             printLeapYear(year);
         } else {
             printNotLeapYear(year);
         }
+    }
+    public static void main(String[] args) {
+
         // Задача 2
         int clientOS = 1;
         int clientDeviceYear = 2015;
@@ -36,10 +35,9 @@ public class Main {
     }
 
     // Задача 3
-    public static int DeliveryDays(int deliveryDistance) {
+    public static int deliveryDays(int deliveryDistance) {
+        int deliveryDays = 3;
         {
-            int deliveryDistance = 95;
-            int deliveryDays = DeliveryDays(deliveryDistance);
             if (deliveryDays == -1) {
                 System.out.println("Свыше 100 км доставки нет");
             } else {
