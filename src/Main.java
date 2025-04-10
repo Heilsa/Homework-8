@@ -1,54 +1,43 @@
-public class Main {
-    public static void printLeapYear(int year) {
-        System.out.println(year + " год - высокосный год");
-    }
-    public static void printNotLeapYear(int year) {
-        System.out.println(year + " год - не высокосный год");
-        // Задача 1
-        year = 2002;
-        if (year >= 1584 && (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)) {
-            printLeapYear(year);
-        }
-    }
-    public static void main(String[] args) {
-
-        // Задача 2
-        int clientOS = 1;
-        int clientDeviceYear = 2015;
-        recommendAppVersion(clientOS, clientDeviceYear);
-    }
-    public static void recommendAppVersion(int clientOS, int clientDeviceYear) {
-        String osType;
-        if (clientOS == 0) {
-            osType = "iOS";
-        } else {
-            osType = "Android";
-        }
-        if (clientDeviceYear <= 2015) {
-            System.out.println("Установите облегченную версию приложения для " + osType + " по ссылке");
-        } else {
-            System.out.println("Установите обычную версию приложения для " + osType + " по ссылке");
-        }
-    }
-    // Задача 3
-    public static int totalDays(int totalDistance) {
-        int totalDays = 3;
-        if (totalDays == -1) {
-            System.out.println("Свыше 100 км доставки нет");
-        } else {
-            System.out.println("Потребуется дней: " + totalDays + " срок доставки");
-        }
-        if (totalDistance < 0) {
-            return -1;
-        } else if (totalDistance <= 20) {
-            return 1;
-        } else if (totalDistance <= 60) {
-            return 2;
-        } else if (totalDistance <= 100) {
-            return 3;
-        } else {
-            return -1;
-
-        }
+// Задача1
+public static String checkYear(int year) {
+    if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+        return year + " год является високосным.";
+    } else {
+        return year + " год не является високосным.";
     }
 }
+// Задача2
+public static String clientOS(int oSClient, int clientDeviceYear) {
+    if (oSClient == 0 && clientDeviceYear < 2015) {
+        return "Установите облегченную версию приложения для iOS по ссылке.";
+    } else if (oSClient == 1 && clientDeviceYear < 2015) {
+        return "Установите облегченную версию приложения для Android по ссылке.";
+    } else if (oSClient == 0 && clientDeviceYear >= 2015) {
+        return "Установите версию приложения для iOS по ссылке.";
+    } else if (oSClient == 1 && clientDeviceYear >= 2015) {
+        return "Установите версию приложения для Android по ссылке.";
+    }
+    return "";
+}
+// Задача3
+public static String checkDay(int deliveryDistance) {
+    int day = 1;
+    if (deliveryDistance <= 20) {
+        return "Потребуется дней: " + day;
+    } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
+        return "Потребуется дней: " + (day + 1);
+    } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
+        return "Потребуется дней: " + (day + 2);
+    } else {
+        return "Свыше 100 км доставки нет.";
+    }
+}
+public static void main(String[] args) {
+
+    System.out.println(checkYear(2021));
+
+    System.out.println(clientOS(0, 2002));
+
+    System.out.println(checkDay(95));
+}
+
